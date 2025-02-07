@@ -15,7 +15,7 @@ public class ShopApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        double tax = 0.2; 
+ 
         double total = 0;
         int measurement = 3;
         Customer c1 =  new Customer();
@@ -26,55 +26,35 @@ public class ShopApp {
         
         Clothing[] items = {item1, item2, item3, item4};
         
-        item1.description = "Blue Jacket";
-        item1.price = 20.9;
-        item1.size = "M";
+        item1.setDescription( "Blue Jacket");
+        item1.setPrice(20.9);
+        item1.setSize( "M");
         
-        item2.description = "Orange T-Shirt";
-        item2.price = 10.5;
-        item2.size = "S";
+        item2.setDescription("Orange T-Shirt");
+        item2.setPrice(10.5);
+        item2.setSize( "S");
         
-        item3.description = "Green Scarf";
-        item3.price = 5;
-        item3.size = "S";
+        item3.setDescription( "Green Scarf");
+        item3.setPrice( 5);
+        item3.setSize( "S");
         
-        item3.description = "Blue T-Shirt";
-        item3.price = 10.5;
-        item3.size = "S";
+        item4.setDescription( "Blue T-Shirt");
+        item4.setPrice(10.5);
+        item4.setSize( "S");
         
-        c1.name = "pinky" ;
-        c1.size = "S";
+        c1.setName("pinky") ;
+        c1.setSize(measurement);
         
-        switch(measurement){
-            case 1,2,3:
-                c1.size = "S" ;
-                break;
-            case 4,5, 6:
-                c1.size = "M";
-                break;
-            case 7, 8, 9:
-                c1.size = "L";
-                break;
-            default:
-                c1.size = "X";
-                break;
-        }
+        System.out.println("Welcome to Duke Choice Shop customer: " + c1.getName() );   
         
-        System.out.println("Welcome to Duke Choice Shop customer: " + c1.name );        
+        c1.addItems(items);
+        total = c1.getTotalClothingCost();
         
-        for(Clothing item : items){
-            if(item.size.equals(c1.size)){
-                total += (tax +  1)*item.price ;
-            }
-            if(total > 15){
-                break;
-            }
-                
-        }
+        System.out.println("Customer: " + c1.getName() + " with size: " + c1.getSize());
         System.out.println("Total amount of items bought is: " + total);
         
         for(Clothing item : items){
-            System.out.println("Item-2 details: Description: " + item.description + " price: " + item.price + " size: " + item.size);
+            System.out.println("Item details: Description: " + item.getDescription() + " price: " + item.getPrice() + " size: " + item.getSize());
         }
         
     }
